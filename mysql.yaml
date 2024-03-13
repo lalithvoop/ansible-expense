@@ -1,0 +1,17 @@
+- name: ansible playbook for mysql
+  hosts: mysql
+  become: yes
+  tasks:
+    - name: Install mysql
+      ansible.builtin.dnf:
+        name: mysql-server
+        state: latest
+    
+    - name: Start service mysqld, if not started
+      ansible.builtin.service:
+        name: mysqld
+        state: started
+        enabled: yes
+    
+    - name: set mysql password
+      ansible.builtin.command: mysql_secure_installation --set-root-pass ExpenseApp@1
