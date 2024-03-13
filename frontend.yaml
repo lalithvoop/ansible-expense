@@ -1,5 +1,5 @@
 - name: ansible playbook for frontend
-  hosts: frontend
+#  hosts: frontend
   become: yes
   roles:
     - frontend
