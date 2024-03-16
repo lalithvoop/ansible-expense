@@ -42,7 +42,7 @@
 - name: running repeatable steps
   ansible.builtin.import_role:
     name: common
-    tasks_from: pre-reqs
+    tasks_from: pre-reqs.yml
 
 - name: Start Nginx
   ansible.builtin.systemd_service:

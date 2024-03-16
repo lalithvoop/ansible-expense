@@ -32,7 +32,7 @@
 - name: Repeatable steps
   ansible.builtin.import_role:
     name: common
-    tasks_from: pre-reqs
+    tasks_from: pre-reqs.yml
 
 - name: Download NodeJS Dependencies
   community.general.npm:
