@@ -28,7 +28,6 @@
 #     path: "{{back_folder}}"
 #     state: directory
 
-
 # # - name: download zip folder
 # #   ansible.builtin.get_url:
 # #     url: https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip
@@ -43,10 +42,9 @@
 - name: running repeatable steps
   ansible.builtin.import_role:
     name: common
-    tasks-from: pre-reqs.yml
+    tasks-from: pre-reqs
 
 - name: Start Nginx
   ansible.builtin.systemd_service:
     state: restarted
     name: nginx
-
