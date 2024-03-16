@@ -15,23 +15,23 @@
 
 - name: clean old dir
   ansible.builtin.file:
-    path: /app
+    path: "{{front_folder}}"
     state: absent
 
 - name: create dir
   ansible.builtin.file:
-    path: /app
+    path: "{{front_folder}}"
     state: directory
 
 - name: Extract backend.zip into /app
   ansible.builtin.unarchive:
     src: https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip
-    dest: /app
+    dest: "{{front_folder}}"
     remote_src: yes
 
 - name: Download NodeJS Dependencies
   community.general.npm:
-    path: /app
+    path: "{{front_folder}}"
     state: latest
 
 - name: Copy Backend Service file

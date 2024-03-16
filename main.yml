@@ -1,0 +1,5 @@
+- name: main script for ansible
+  hosts: all
+  become: yes
+  roles:
+    {{role}}

@@ -1,8 +1,8 @@
 [frontend]
-172.31.6.210
+frontend-dev.vsldo.online
 
 [mysql]
-172.31.0.207
+mysql-dev.vsldo.online
 
 [backend]
-172.31.6.91
+backend-dev.vsldo.online
