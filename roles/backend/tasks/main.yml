@@ -29,7 +29,7 @@
 #     dest: "{{front_folder}}"
 #     remote_src: yes
 
-- name: running repeatable steps
+- name: Repeatable steps
   ansible.builtin.import_role:
     name: common
     tasks-from: pre-reqs
