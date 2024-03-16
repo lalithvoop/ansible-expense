@@ -18,27 +18,32 @@
     src: expense.conf
     dest: /etc/nginx/default.d/expense.conf
 
-- name: Recursively remove directory
-  ansible.builtin.file:
-    path: "{{back_folder}}"
-    state: absent
+# - name: Recursively remove directory
+#   ansible.builtin.file:
+#     path: "{{back_folder}}"
+#     state: absent
 
-- name: create the deleted directory
-  ansible.builtin.file:
-    path: "{{back_folder}}"
-    state: directory
+# - name: create the deleted directory
+#   ansible.builtin.file:
+#     path: "{{back_folder}}"
+#     state: directory
 
 
-# - name: download zip folder
-#   ansible.builtin.get_url:
-#     url: https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip
-#     dest: /tmp/frontend.zip
+# # - name: download zip folder
+# #   ansible.builtin.get_url:
+# #     url: https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip
+# #     dest: /tmp/frontend.zip
 
-- name: Extract frontend.zip into /usr/share/nginx/html
-  ansible.builtin.unarchive:
-    src: https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip
-    dest: "{{back_folder}}"
-    remote_src: yes
+# - name: Extract frontend.zip into /usr/share/nginx/html
+#   ansible.builtin.unarchive:
+#     src: https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip
+#     dest: "{{back_folder}}"
+#     remote_src: yes
+
+- name: running pre-reqs steps
+  ansible.builtin.import_role:
+    name: common
+    tasks-from: pre-reqs.yml
 
 - name: Start Nginx
   ansible.builtin.systemd_service:

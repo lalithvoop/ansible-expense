@@ -13,21 +13,26 @@
   ansible.builtin.user:
     name: expense
 
-- name: clean old dir
-  ansible.builtin.file:
-    path: "{{front_folder}}"
-    state: absent
+# - name: clean old dir
+#   ansible.builtin.file:
+#     path: "{{front_folder}}"
+#     state: absent
 
-- name: create dir
-  ansible.builtin.file:
-    path: "{{front_folder}}"
-    state: directory
+# - name: create dir
+#   ansible.builtin.file:
+#     path: "{{front_folder}}"
+#     state: directory
 
-- name: Extract backend.zip into /app
-  ansible.builtin.unarchive:
-    src: https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip
-    dest: "{{front_folder}}"
-    remote_src: yes
+# - name: Extract backend.zip into /app
+#   ansible.builtin.unarchive:
+#     src: https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip
+#     dest: "{{front_folder}}"
+#     remote_src: yes
+
+- name: running repeatable steps
+  ansible.builtin.import_role:
+    name: common
+    tasks-from: main.yml
 
 - name: Download NodeJS Dependencies
   community.general.npm:

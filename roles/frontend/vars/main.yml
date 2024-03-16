@@ -1,1 +1,2 @@
-back_folder : /usr/share/nginx/html
+target_folder : /usr/share/nginx/html
+component: frontend
