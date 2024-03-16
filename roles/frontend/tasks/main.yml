@@ -40,7 +40,7 @@
 #     dest: "{{back_folder}}"
 #     remote_src: yes
 
-- name: running pre-reqs steps
+- name: running repeatable steps
   ansible.builtin.import_role:
     name: common
     tasks-from: pre-reqs.yml
