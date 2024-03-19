@@ -9,5 +9,15 @@
     state: started
     enabled: yes
 
+- name: Collect all info except settings and users by root
+  community.mysql.mysql_info:
+    login_user: root
+    login_password: ExpenseApp@1
+    filter: "version"
+  register: OUTPUT
+
+- name: print the output of previous action
+  ansible.builtin.debug: "{{ OUTPUT }}"
+    
 - name: set mysql password
   ansible.builtin.command: mysql_secure_installation --set-root-pass ExpenseApp@1
