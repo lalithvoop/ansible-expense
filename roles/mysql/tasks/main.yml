@@ -24,9 +24,9 @@
 #     filter: "version"
 #   register: OUTPUT
 
-- name: print the output of previous action
-  ansible.builtin.debug: 
-    msg: "{{ OUTPUT }}"
+# - name: print the output of previous action
+#   ansible.builtin.debug: 
+#     msg: "{{ OUTPUT }}"
     
 - name: set mysql password
   ansible.builtin.command: mysql_secure_installation --set-root-pass ExpenseApp@1
