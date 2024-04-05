@@ -3,7 +3,7 @@ Description=node exporter for prometheus
 
 [Service]
 User=bin
-ExecStart=/opt/node_exporter-{{ version }}.linux-amd64/node_exporter
+ExecStart=/opt/node_exporter-1.7.0.linux-amd64/node_exporter
 SyslogIdentifier=node_exporter
 
 [Install]
