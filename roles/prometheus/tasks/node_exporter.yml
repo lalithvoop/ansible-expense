@@ -8,7 +8,7 @@
 - name: saving the service file to systemd
   ansible.builtin.template:
     src: node_exporter.service
-    desc: /etc/systemd/system/
+    dest: /etc/systemd/system/
 
 - name: start node exporter service
   ansible.builtin.systemd_service:
