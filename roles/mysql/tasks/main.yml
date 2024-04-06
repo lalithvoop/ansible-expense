@@ -16,14 +16,25 @@
       - cryptography
     executable: pip3.9
 
-- name: Collect all info except settings and users by root
+# - name: Collect all info except settings and users by root
+#   community.mysql.mysql_info:
+#     login_user: root
+#     login_password: ExpenseApp@1
+#     login_host: mysql-dev.vsldo.online
+#     filter: "version"
+#   register: mysql_connection_output
+#   ignore_errors: yes
+
+- name: Check the DB connection with our password
   community.mysql.mysql_info:
     login_user: root
     login_password: ExpenseApp@1
     login_host: mysql-dev.vsldo.online
-    filter: "version"
+    filter: version
   register: mysql_connection_output
-  ignore_errors: yes
+  ignore_errors: true
+
+
 
 # - name: print the output of previous action
 #   ansible.builtin.debug: 
