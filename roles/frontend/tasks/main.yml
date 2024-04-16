@@ -53,3 +53,8 @@
   ansible.builtin.systemd_service:
     state: restarted
     name: nginx
+
+- name: Import NewRelic Nginx Setup
+  ansible.builtin.import_role:
+    name: newrelic
+    tasks_from: nginx
