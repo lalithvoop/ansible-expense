@@ -1,0 +1,4 @@
+- name: installing newrelic nodejs module
+  community.general.npm:
+    name: nrewrelic
+    path: /app
