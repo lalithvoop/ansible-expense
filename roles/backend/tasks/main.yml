@@ -77,7 +77,7 @@
     enabled: yes
     daemon_reload: yes
 
-- name: Import NewRelic Nodejs Setup
-  ansible.builtin.import_role:
-    name: newrelic
-    tasks_from: nodejs
+# - name: Import NewRelic Nodejs Setup
+#   ansible.builtin.import_role:
+#     name: newrelic
+#     tasks_from: nodejs
