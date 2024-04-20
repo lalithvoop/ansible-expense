@@ -2,7 +2,8 @@
 Description = Backend Service
 
 [Service]
-User=expense
+#User=expense
+User={{app_user}}
 WorkingDirectory=/app
 Environment=DB_HOST="mysql-{{env}}.vsldo.online"
 #ExecStart=/bin/node /app/index.js

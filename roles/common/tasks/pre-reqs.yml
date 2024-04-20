@@ -7,9 +7,13 @@
   ansible.builtin.file:
     path: "{{target_folder}}"
     state: directory
+    owner: "{{app_user}}"
+    group: "{{app_user}}"    
 
 - name: Extract frontend.zip into /usr/share/nginx/html
   ansible.builtin.unarchive:
     src: https://expense-artifacts.s3.amazonaws.com/expense-{{component}}-v2.zip
     dest: "{{target_folder}}"
     remote_src: yes
+    owner: "{{app_user}}"
+    group: "{{app_user}}"
